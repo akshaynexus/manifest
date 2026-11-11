@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!-- ".." is the manifest's own host and org, so SSH and HTTPS clones both work and nothing changes when the repos go public -->
+  <remote name="open-mapple" fetch=".." />
+  <remote name="freedesktop" fetch="https://gitlab.freedesktop.org/mesa/" />
+  <default remote="open-mapple" revision="main" sync-j="4" />
+
+  <project name="mapple_build" path="build/mapple">
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+  </project>
+  <project name="mapple_vendor" path="vendor/mapple" />
+  <project name="xnu_kernel_mediatek_common" path="kernel/mediatek/common" />
+  <project name="xnu_kernel_mediatek_mt6781" path="kernel/mediatek/mt6781" />
+  <project name="xnu_device_realme_spaced" path="device/realme/spaced" groups="device,spaced" />
+  <project name="mapple_loader" path="mapple/loader" />
+  <project name="mapple_userland" path="mapple/userland" />
+  <project name="mapple_gpu_mali" path="mapple/gpu/mali" groups="gpu" />
+  <project name="mesa" path="external/mesa" remote="freedesktop" revision="refs/tags/mesa-26.2.6" clone-depth="1" groups="gpu" />
+  <project name="mapple_splitboot" path="mapple/splitboot" groups="splitboot,notdefault" />
+</manifest>
