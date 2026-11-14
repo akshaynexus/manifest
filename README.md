@@ -74,6 +74,10 @@ the partition table before you flash anything.
 | `mapple/splitboot` | mapple_splitboot | the optional dual boot |
 | `external/mesa` | Mesa | Panfrost and the Valhall compiler |
 
+## Porting another phone
+
+[docs/porting.md](docs/porting.md): from a MediaTek phone's open Android trees to a booting port, with `mapple_device_setup_scripts`.
+
 ## Credits
 
 Open Mapple is built on Apple's XNU (APSL 2.0), HakiOS (oosexgang), ios-sweet (dipa-studio), ios-viva and
