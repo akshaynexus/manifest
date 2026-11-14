@@ -14,6 +14,7 @@
   <project name="xnu_device_realme_spaced" path="device/realme/spaced" groups="device,spaced" />
   <project name="mapple_loader" path="mapple/loader" />
   <project name="mapple_userland" path="mapple/userland" />
+  <project name="mapple_manager" path="mapple/manager" />
   <project name="mapple_gpu_mali" path="mapple/gpu/mali" groups="gpu" />
   <project name="mesa" path="external/mesa" remote="freedesktop" revision="refs/tags/mesa-26.2.6" clone-depth="1" groups="gpu" />
   <project name="mapple_splitboot" path="mapple/splitboot" groups="splitboot,notdefault" />
