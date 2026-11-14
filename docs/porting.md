@@ -10,8 +10,8 @@ builder. Read HakiOS's pages as well.
 
 ## What you need
 
-- an unlocked bootloader, root in Android, and a way back that does not depend on the partition you write: MediaTek's boot ROM
-  mode with mtkclient (spaced: fastboot does not work; on macOS mtkclient needs `sudo` and FUSE-T)
+- an unlocked bootloader, root in Android, and a way back that does not depend on the partition you write: fastboot (spaced:
+  `adb reboot bootloader`) and, if LK itself hangs, MediaTek's boot ROM mode with mtkclient (on macOS it needs `sudo` and FUSE-T)
 - your own backup of `boot`, `lk` and the partition table, before anything is flashed
 - the phone's open Android trees (device and kernel) and its own tree and GPT, read from the running phone
 - a port writes two things: `boot` (the loader chained in front of Android's kernel) and one partition of its own, `xnusys`,
@@ -57,6 +57,20 @@ write) in a boot of its own with a record line. On a failure, halve the new argu
 | 10 | Wi-Fi/Bluetooth (CONNSYS), audio, torch, haptic, camera, sensors, cellular | each part's own scan, join, sound, light | Wi-Fi and the flash LED work, Bluetooth and audio in part; the rest per `status` lines |
 | 11 | write it down | `device.conf` says what a run showed | |
 
+### Seeing and steering a run
+
+- **USB link.** Until the kernel is up the log is pstore's. With `mp_usblink` the kernel's console and a command channel (cpu,
+  gpu probe and power, peek and poke, run a program) go over USB to the Mac with `mapple-link`; on spaced it is up from the
+  first kernel line. Use a good cable: a faulty one dropped the link and failed large pushes, and unplugging drops it.
+- **Boot-args record.** From running iOS, as root, the next boot's arguments can be written without reflashing `boot`
+  (`kern.mapple_nextbootargs`, or `mapple-link bootrec`). The record is one block in the last MiB of the root partition,
+  outside the filesystem, because LK write-protects `boot` while iOS runs. The shim reads it before the kernel, only while the
+  payload's own line still hashes to the recorded one; anything unexpected, and it uses the payload's line. Batch several
+  arguments per run this way.
+- **Safe boot.** Hold Volume Down through the "Booting Darwin" window and keep holding (letting go early gives a normal record
+  boot): the shim ignores the record and uses the payload's line, with the memory holes (`mp_mem4g=0`) and the radios off. A
+  record that hangs the phone is escaped this way, so keep the payload's own line safe and put every new argument in the record.
+
 ### Memory beyond the first range (step 7)
 
 - The kernel is given the free memory as the script lists it: every fixed reservation of LK's tree (no-map or not), the payload
@@ -83,7 +97,7 @@ write) in a boot of its own with a record line. On a failure, halve the new argu
 | data abort in a flush | flush by physical address skips holes |
 | DVFS refused | a check misread the PMIC: its SRAM rail tracks the processor rail in hardware (+100 mV on spaced) |
 | link lost seconds into a thermal trip test | the hardware reset, lowered to 55 C for the test, fired (cold reset, thermal bit set) |
-| fastboot entered from a reboot | the volume key held through `adb reboot`: press it after the logo |
+| fastboot entered when XNU was wanted | Volume Down held through `adb reboot` (that is also the way in: `adb reboot bootloader`); for the XNU window press it after the logo |
 
 ## 4. Writing it down
 
