@@ -76,7 +76,7 @@ the partition table before you flash anything.
 
 ## Porting another phone
 
-[docs/porting.md](docs/porting.md): from a MediaTek phone's open Android trees to a booting port, with `mapple_device_setup_scripts`.
+The porting guide is in the documentation on the project's website, with `mapple_device_setup_scripts` as its first step.
 
 ## Credits
 
