@@ -34,6 +34,7 @@ here (HTTPS or SSH).
 | `mapple/loader` | mapple_loader | the boot loader, shim and boot menu |
 | `mapple/userland` | mapple_userland | programs that run on the phone |
 | `mapple/manager` | mapple_manager | Mapple, the app on the phone |
+| `mapple/assembler` | mapple_assembler | mapple-assemble, which puts a release together on the user's computer |
 | `mapple/gpu/mali` | mapple_gpu_mali | the Metal driver for Mali GPUs |
 | `mapple/splitboot` | mapple_splitboot | SplitBoot, the dual boot (group `splitboot`) |
 | `external/mesa` | Mesa | Panfrost and the Valhall compiler, at a pinned tag |
