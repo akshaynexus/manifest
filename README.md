@@ -27,7 +27,7 @@ here (HTTPS or SSH).
 | Path | Repository | What it holds |
 | --- | --- | --- |
 | `build/mapple` | mapple_build | `envsetup`, `lunch`, `mka`, the iOS download, image and zip packaging |
-| `vendor/mapple` | mapple_vendor | shared configuration, release tooling, credits |
+| `vendor/mapple` | mapple_vendor | shared configuration (pinned downloads), credits |
 | `kernel/mediatek/common` | xnu_kernel_mediatek_common | XNU for MediaTek phones |
 | `kernel/mediatek/mt6781` | xnu_kernel_mediatek_mt6781 | the MT6781 layer of the kernel |
 | `device/realme/spaced` | xnu_device_realme_spaced | the realme 8i |
