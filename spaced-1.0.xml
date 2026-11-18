@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!-- release 1 (spaced-1.0): every project at the commit its signed MANIFEST names -->
+  <!-- ".." is the manifest's own host and org, so SSH and HTTPS clones both work and nothing changes when the repos go public -->
+  <remote name="open-mapple" fetch=".." />
+  <remote name="freedesktop" fetch="https://gitlab.freedesktop.org/mesa/" />
+  <default remote="open-mapple" revision="main" sync-j="4" />
+
+  <project name="mapple_build" path="build/mapple" revision="7262951971120a95b95a3d1bbe4e19e6b0a47f6a" upstream="main">
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+  </project>
+  <project name="mapple_vendor" path="vendor/mapple" revision="0b3065ed308ed6ecb51fc487f886428154c047ec" upstream="main" />
+  <project name="xnu_kernel_mediatek_common" path="kernel/mediatek/common" revision="c033748294968d155f7cd5ac7b152d4368149497" upstream="main" />
+  <project name="xnu_kernel_mediatek_mt6781" path="kernel/mediatek/mt6781" revision="801d7681b0d157e2f5751452edc8e76ae2e866ee" upstream="main" />
+  <project name="xnu_device_realme_spaced" path="device/realme/spaced" revision="16bd43c123781e40ac4e17fa55db24e41883b89d" upstream="main" groups="device,spaced" />
+  <project name="mapple_loader" path="mapple/loader" revision="3f9da28db29605696dd3192c60f0617654979f18" upstream="main" />
+  <project name="mapple_userland" path="mapple/userland" revision="1f8348c29494eee534948bc10568070c7c3a6224" upstream="main" />
+  <project name="mapple_manager" path="mapple/manager" revision="fb444468fa7eee2a4ccdaa9f323674a831d0d15e" upstream="main" groups="private,notdefault" />
+  <project name="mapple_assembler" path="mapple/assembler" revision="0c54d916968cc94b57b415651e78e1a8afc71c21" upstream="main" groups="private,notdefault" />
+  <project name="mapple_gpu_mali" path="mapple/gpu/mali" revision="85954b3d6fa540bc79107003fcc5f6f1e4573137" upstream="main" groups="gpu" />
+  <project name="mesa" path="external/mesa" remote="freedesktop" revision="refs/tags/mesa-26.2.6" clone-depth="1" groups="gpu" />
+  <project name="mapple_splitboot" path="mapple/splitboot" revision="e496a55a618218fa28209070ab38ee47bc3a62b7" upstream="main" groups="splitboot,notdefault" />
+</manifest>
