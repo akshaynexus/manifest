@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <!-- release 1 (spaced-1.0): every project at the commit its signed MANIFEST names -->
-  <!-- ".." is the manifest's own host and org, so SSH and HTTPS clones both work and nothing changes when the repos go public -->
-  <remote name="open-mapple" fetch=".." />
+  <!-- "." is the manifest's own host and org, so SSH and HTTPS clones both work and nothing changes when the repos go public -->
+  <remote name="open-mapple" fetch="." />
   <remote name="freedesktop" fetch="https://gitlab.freedesktop.org/mesa/" />
   <default remote="open-mapple" revision="main" sync-j="4" />
 
