@@ -19,4 +19,8 @@
   <project name="mapple_gpu_mali" path="mapple/gpu/mali" groups="gpu" />
   <project name="mesa" path="external/mesa" remote="freedesktop" revision="refs/tags/mesa-26.2.6" clone-depth="1" groups="gpu" />
   <project name="mapple_splitboot" path="mapple/splitboot" groups="splitboot,notdefault" />
+  <project name="xnu_kernel_qcom_common" path="kernel/qcom/common" groups="qcom,notdefault" />
+  <project name="xnu_kernel_qcom_sm7150" path="kernel/qcom/sm7150" groups="qcom,notdefault" />
+  <project name="xnu_device_xiaomi_sweet" path="device/xiaomi/sweet" groups="qcom,notdefault" />
+  <project name="xnu_device_google_sunfish" path="device/google/sunfish" groups="qcom,notdefault" />
 </manifest>

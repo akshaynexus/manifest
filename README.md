@@ -21,6 +21,7 @@ here (HTTPS or SSH).
 | `default` | everything needed to build a phone | always |
 | `gpu` | the Metal driver and the pinned Mesa release | part of `default` |
 | `splitboot` | the dual boot installer | `repo init ... -g default,splitboot` |
+| `qcom` | the Qualcomm kernel and devices (sweet, sunfish): build-only, not yet booted by anyone | `repo init ... -g default,qcom` |
 | `private` | the Mapple app and the release assembler, not public: without them the build takes Mapple.app from the release | maintainers only |
 
 ## The tree
@@ -38,6 +39,10 @@ here (HTTPS or SSH).
 | `mapple/assembler` | mapple_assembler | mapple-assemble, which puts a release together on the user's computer (group `private`) |
 | `mapple/gpu/mali` | mapple_gpu_mali | the Metal driver for Mali GPUs |
 | `mapple/splitboot` | mapple_splitboot | SplitBoot, the dual boot (group `splitboot`) |
+| `kernel/qcom/common` | xnu_kernel_qcom_common | XNU for Qualcomm phones (group `qcom`) |
+| `kernel/qcom/sm7150` | xnu_kernel_qcom_sm7150 | the SM7150 layer of the kernel (group `qcom`) |
+| `device/xiaomi/sweet` | xnu_device_xiaomi_sweet | the Redmi Note 10 Pro (group `qcom`) |
+| `device/google/sunfish` | xnu_device_google_sunfish | the Pixel 4a (group `qcom`) |
 | `external/mesa` | Mesa | Panfrost and the Valhall compiler, at a pinned tag |
 
 ## Build
